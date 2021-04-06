@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WhoIsMyGrandDaddy.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WhoIsMyGrandDaddy
 {
@@ -26,6 +28,7 @@ namespace WhoIsMyGrandDaddy
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            services.AddDbContext<FamilyTreeDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SpinHook")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
