@@ -2,27 +2,29 @@
   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
-<h1 id="tableLabel">Weather forecast</h1>
-
 <p>This component demonstrates fetching data from the server.</p>
 
-<p *ngIf="!forecasts"><em>Loading...</em></p>
+<p *ngIf="!people"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="people">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Temp. (C)</th>
-      <th>Temp. (F)</th>
-      <th>Summary</th>
+      <th>Father ID</th>
+      <th>Mother ID</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Birthdate</th>
+      <th>IdentityNumber</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let forecast of forecasts">
-      <td>{{ forecast.date }}</td>
-      <td>{{ forecast.temperatureC }}</td>
-      <td>{{ forecast.temperatureF }}</td>
-      <td>{{ forecast.summary }}</td>
+    <tr *ngFor="let person of people">
+      <td>{{ person.fatherId }}</td>
+      <td>{{ person.motherId }}</td>
+      <td>{{ person.name }}</td>
+      <td>{{ person.surname }}</td>
+      <td>{{ person.birthdate }}</td>
+      <td>{{ person.identityNumber }}</td>
     </tr>
   </tbody>
 </table>

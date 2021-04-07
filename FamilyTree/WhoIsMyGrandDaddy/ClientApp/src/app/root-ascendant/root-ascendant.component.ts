@@ -6,18 +6,21 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './root-ascendant.component.html'
 })
 export class RootAscendantComponent {
-  public forecasts: WeatherForecast[];
+  public people: FamilyTreeDB[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
-      this.forecasts = result;
+    http.get<FamilyTreeDB[]>(baseUrl + 'api/People').subscribe(result => {
+      this.people = result;
+      console.log("result" + JSON.stringify(this.people));
     }, error => console.error(error));
   }
 }
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+interface FamilyTreeDB {
+  fatherId: string;
+  motherId: string;
+  name: string;
+  surname: string;
+  birthdate: Date;
+  identityNumber: string;
 }
